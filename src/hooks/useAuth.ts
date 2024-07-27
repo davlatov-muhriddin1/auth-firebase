@@ -5,8 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth/cordova";
 import { useAuthStore } from "../store/auth.store";
 
 function useAuth() {
-  const { user, setUser, isLoading, setLoading, error, setError } =
-    useAuthStore();
+  const { setUser, isLoading, setLoading, error, setError } = useAuthStore();
 
   const navigate = useNavigate();
 
