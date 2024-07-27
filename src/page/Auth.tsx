@@ -1,7 +1,6 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { useAuthStore } from "../store/auth.store";
-import { useNavigate } from "react-router-dom";
 
 function Auth() {
   const [auth, setAuth] = useState<"signup" | "signin">("signin");
@@ -10,7 +9,7 @@ function Auth() {
   const [invalid, setInvalid] = useState<boolean>(false);
 
   const { signUp, signIn } = useAuth();
-  const { isLoading, user, error } = useAuthStore();
+  const { isLoading, error } = useAuthStore();
 
   const toggleAuth = (state: "signin" | "signup") => {
     setAuth(state);
@@ -29,8 +28,6 @@ function Auth() {
     } else {
       signIn(email, password);
     }
-
-    console.log(user);
   };
 
   return (
